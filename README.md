@@ -1,6 +1,6 @@
 # VIGENERE-CIPHER
 ## EX. NO: 4
- 
+
 
 ## IMPLEMETATION OF VIGENERE CIPHER
  
@@ -30,7 +30,26 @@ STEP-8: Repeat the above steps to generate the entire cipher text.
 
 
 ## PROGRAM
-
+```
+#include<stdio.h> 
+#include <string.h>  
+void vigenereCipher(char *text, char *key, int decrypt) {  
+int len = strlen(text), keyLen = strlen(key);  
+for (int i = 0; i < len; i++) {  
+int shift = key[i % keyLen]- 'A';  
+text[i] = 'A' + (text[i]- 'A' + (decrypt ? 26- shift : shift)) % 26;  
+}  
+}  
+int main() {  
+char text[] = "ATCHAYA", key[] = "KEY";  
+vigenereCipher(text, key, 0);  
+printf("Encrypted Message: %s\n", text);  
+vigenereCipher(text, key, 1);  
+printf("Decrypted Message: %s\n", text);  
+return 0;  
+}
+```
 ## OUTPUT
-
+<img width="1920" height="1080" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/52361659-3012-4a0d-a5b9-3797a5561439" />
 ## RESULT
+Thus the program for Vigenere-Cipher executed successfully.
